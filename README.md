@@ -1,10 +1,10 @@
 <!-- Badges -->
 <h1 align="center">👤 API de Usuários</h1>
 <p align="center">
-  <b>API REST desenvolvida em Java com Spring Boot para gerenciamento de usuários utilizando MongoDB.</b>
+  <b>REST API developed in Java with Spring Boot for user management using MongoDB.</b>
 </p>
 <p align="center">
-  Projeto voltado para prática de desenvolvimento backend, arquitetura em camadas, operações CRUD e integração com banco de dados NoSQL.
+  A project focused on practicing backend development, layered architecture, CRUD operations, and integration with a NoSQL database.
 </p>
 <p align="center">
   <img alt="Java" src="https://img.shields.io/badge/Java%2025-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" />
@@ -18,86 +18,86 @@
 
 <summary><strong>
 
-📑 Índice</strong></summary>
+📑 Table of Contents</strong></summary>
 
-🚀 Funcionalidades
+🚀 Features
 
-🛠️ Tecnologias
+🛠️ Technologies
 
-🏗️ Arquitetura do Projeto
+🏗️ Project Architecture
 
 🔌 Endpoints
 
-📦 Estrutura de Dados
+📦 Data Structure
 
-🗄️ Configuração do MongoDB
+🗄️ MongoDB Configuration
 
-▶️ Como Executar
+▶️ How to Run
 
-🧪 Testando a API
+🧪 Testing the API
 
-🎯 Objetivo do Projeto
+🎯 Project Goal
 
-🔮 Possíveis Melhorias
+🔮 Possible Improvements
 
-👨‍💻 Autor
+👨‍💻 Author
 
 </details>
 ---
 
-<h2 id="funcionalidades">🚀 Funcionalidades</h2>
+<h2 id="funcionalidades">🚀 Features</h2>
 
-A API disponibiliza as principais operações para gerenciamento de usuários:
+The API provides the main operations for user management:
 
-➕ Cadastrar um novo usuário;
+➕ Register a new user;
 
-📋 Listar todos os usuários cadastrados;
+📋 List all registered users;
 
-✏️ Atualizar informações de um usuário;
+✏️ Update a user's information;
 
-🗑️ Excluir um usuário através do ID.
+🗑️ Delete a user by ID.
 
-Os dados são armazenados na coleção 'usuario' do MongoDB.
+The data is stored in the usuario collection in MongoDB.
 
 ---
 
-<h2 id="tecnologias">🛠️ Tecnologias</h2>
+<h2 id="tecnologias">🛠️ Technologies</h2>
 
 ![java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white) 
 
-Java: Linguagem principal da aplicação
+Java: Main programming language of the application
 
 ![spring](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
 
-Spring Boot	Criação e configuração da API
+Spring Boot: API creation and configuration
 
 ![spring](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
 
-Spring Web MVC:	Construção dos endpoints HTTP
+Spring Web MVC: HTTP endpoint development
 
 ![mongo](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
 
-Spring Data MongoDB: Persistência e integração com MongoDB
+Spring Data MongoDB: Persistence and MongoDB integration
 
 ![mongo](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
 
-MongoDB: Banco de dados NoSQL
+MongoDB: NoSQL database
 
 ![maven](https://img.shields.io/badge/Apache%20Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)
 
-Apache Maven: Gerenciamento de dependências e build
+Apache Maven: Dependency management and build automation
 
 ![postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
 
-Postman: Testes das requisições HTTP
+Postman: HTTP request testing
 
 <p align="center">
 
 </p>
 ---
-<h2 id="arquitetura">🏗️ Arquitetura do Projeto</h2>
+<h2 id="arquitetura">🏗️ Project Architecture</h2>
 
-O projeto segue uma organização baseada em separação de responsabilidades, dividindo a aplicação entre camadas de controle, regras de negócio e persistência.
+The project follows an organization based on separation of responsibilities, dividing the application into control, business logic, and persistence layers.
 ```text
 
 api-usuario
@@ -125,71 +125,69 @@ api-usuario
 ```
 🎮 Controller
 
-O `UsuarioController` recebe as requisições HTTP e disponibiliza os endpoints da API através da rota base `/usuarios`.
+The UsuarioController receives HTTP requests and exposes the API endpoints through the base route /usuarios.
 
-As operações implementadas utilizam os métodos HTTP:
+The implemented operations use the following HTTP methods:
 
 `POST` • `GET` • `PUT` • `DELETE`
 
 🧠 Business
 
-A classe `UsuarioService` concentra a lógica de negócio e atua como intermediária entre o controller e o repositório.
+The UsuarioService class contains the business logic and acts as an intermediary between the controller and the repository.
 
-Entre suas responsabilidades estão:
+Its responsibilities include:
 
-1. Salvar usuários;
+Saving users;
 
-2. Buscar usuários;
+Retrieving users;
 
-3. Atualizar registros;
+Updating records;
 
-Excluir usuários.
+Deleting users.
 
 📄 Entity
 
-A classe `Usuario` representa o documento persistido no MongoDB.
+The Usuario class represents the document persisted in MongoDB.
 
-A entidade utiliza:
+The entity uses:
 
 ```java
 @Document(collection = "usuario")
 ```
-E possui os campos:
+And contains the following fields:
+
 `id`
 `nome`
 `email`
 
 🗃️ Repository
 
-O `UsuarioRepository` estende:
-
-```java
+The UsuarioRepository extends:
 
 MongoRepository<Usuario, String>
 
-```
-Dessa forma, a aplicação utiliza as operações de persistência disponibilizadas pelo Spring Data MongoDB.
+This way, the application uses the persistence operations provided by Spring Data MongoDB.
 
 <h2 id="endpoints">🔌 Endpoints</h2>
 
-A rota base da API é:
+The API base route is:
 
 ```text
 /usuarios
 ```
-Método	Endpoint	Descrição
+Method	Endpoint	Description
 
-<kbd>POST</kbd>	`/usuarios`	Cadastra um novo usuário
+<kbd>POST</kbd>	`/usuarios`	Registers a new user
 
-<kbd>GET</kbd>	`/usuarios`	Lista todos os usuários
+<kbd>GET</kbd>	`/usuarios`	List all users
 
-<kbd>PUT</kbd>	`/usuarios`	Atualiza um usuário
+<kbd>PUT</kbd>	`/usuarios`	Updates a user
 
-<kbd>DELETE</kbd>	`/usuarios?id={id}`	Exclui um usuário pelo ID
+<kbd>DELETE</kbd>	`/usuarios?id={id}`	Deletes a user by ID
 
-➕ POST `/usuarios`
+**➕ POST `/usuarios`**
 
-Exemplo de corpo da requisição:
+Example request body:
 
 ```json
 {
@@ -197,7 +195,7 @@ Exemplo de corpo da requisição:
   "email": "joao@email.com"
 }
 ```
-📋 Fluxo das operações
+**📋 Operation Flow**
 
 ```text
 POST /usuarios
@@ -218,9 +216,9 @@ Exclusão do usuário
 ```
 ---
 
-<h2 id="estrutura-de-dados">📦 Estrutura de Dados</h2>
+<h2 id="estrutura-de-dados">📦 Data structure</h2>
 
-Cada usuário armazenado pela API possui a seguinte estrutura conceitual:
+Each user stored by the API has the following conceptual structure:
 
 ```json
 
@@ -232,67 +230,67 @@ Cada usuário armazenado pela API possui a seguinte estrutura conceitual:
 ```
 ---
 
-<h2 id="mongodb">🗄️ Configuração do MongoDB</h2>
+<h2 id="mongodb">🗄️ MongoDB ConfigurationB</h2>
 
-A aplicação está configurada para utilizar uma instância local do MongoDB:
+The application is configured to use a local MongoDB instance:
 
 ```text
 
 mongodb://localhost:27017/local
 ```
-A configuração da aplicação está localizada em:
+The application configuration is located at:
 
 ```text
 
 src/main/resources/application.properties
 ```
-O nome configurado para a aplicação é:
+The configured application name is:
 
 ```text
 
 api-usuario
 
 ```
-> ⚠️ Certifique-se de que o MongoDB esteja em execução antes de iniciar a API.
+> ⚠️ Make sure MongoDB is running before starting the API.
 
 ---
 
-<h2 id="como-executar">▶️ Como Executar</h2>
+<h2 id="como-executar">▶️ How to run</h2>
 
-📋 Pré-requisitos
+📋 Prerequisites
 ---
 
-Antes de executar o projeto, tenha instalado:
+Before running the project, make sure you have installed:
 
 ☕ Java 25;
 
 🍃 MongoDB;
 
-📦 Maven ou Maven Wrapper;
+📦 Maven or Maven Wrapper;
 
-🧪 Postman ou outra ferramenta para testar APIs;
+🧪 Postman or another API testing tool;
 
 🧰 Git.
 
-1️⃣ Clone o repositório
+1️⃣ Clone the repository
 
 ```bash
 
 git clone https://github.com/vitorio-santos/Projeto-API.git
 ```
 
-2️⃣ Acesse o diretório do projeto
+2️⃣ Access the project directory
 
 ```bash
 
 cd Projeto-API/api-usuario
 ```
 
-3️⃣ Inicie o MongoDB
+3️⃣ Start MongoDB
 
-Verifique se o serviço do MongoDB está sendo executado localmente e disponível para conexão.
+Make sure the MongoDB service is running locally and available for connection.
 
-4️⃣ Execute a aplicação
+4️⃣ Run the application
 
 Windows:
 
@@ -306,23 +304,23 @@ Linux/macOS:
 ```
 ---
 
-<h2 id="testando-a-api">🧪 Testando a API</h2>
+<h2 id="testing-the-api">🧪 Testing the API</h2>
 
-As requisições podem ser realizadas utilizando o Postman ou qualquer cliente HTTP compatível.
+Requests can be made using Postman or any compatible HTTP client.
 
-Uma sequência simples de testes é:
+A simple testing sequence is:
 
-**➕ Criar um usuário utilizando `POST /usuarios`;**
+**➕ Create a user using `POST /usuarios`;**
 
-**📋 Consultar os usuários utilizando `GET /usuarios`;**
+**📋 Retrieve users using `GET /usuarios`;**
 
-**✏️ Atualizar os dados utilizando `PUT /usuarios`;**
+**✏️ Update data using `PUT /usuarios`;**
 
-**🗑️ Excluir um registro utilizando `DELETE /usuarios?id={id}`.**
+**🗑️ Delete a record using `DELETE /usuarios?id={id}`.**
 
-<h2 id="objetivo">🎯 Objetivo do Projeto</h2>
+<h2 id="project-goal">🎯 Project goal</h2>
 
-Este projeto foi desenvolvido com foco em prática e evolução no desenvolvimento backend, aplicando conceitos como:
+This project was developed with a focus on practice and growth in backend development, applying concepts such as:
 
 **APIs REST;**
 
@@ -334,48 +332,47 @@ Este projeto foi desenvolvido com foco em prática e evolução no desenvolvimen
 
 **Spring Data MongoDB;**
 
-**Banco de dados NoSQL;**
+**NoSQL databases;**
 
-**Operações CRUD;**
+**CRUD operations;**
 
-**Separação de responsabilidades;**
+**Separation of responsibilities;**
 
-**Arquitetura em camadas**
+**Layered architecture;**
 
-**Integração entre aplicação e banco de dados.**
+**Integration between application and database.**
 
-<h2 id="melhorias">🔮 Possíveis Melhorias</h2>
+<h2 id="improvements">🔮 Possible Improvements</h2>
 
-Como evolução futura, podem ser implementados:
+As future improvements, the following features may be implemented:
 
-**[ ] Validação dos dados de entrada;**
+.Input data validation;
 
-**[ ] Tratamento global de exceções;**
+.Global exception handling;
 
-**[ ] DTOs para requisições e respostas;**
+.DTOs for requests and responses;
 
-**[ ] Documentação com Swagger/OpenAPI;**
+.Documentation with Swagger/OpenAPI;
 
-**[ ] Testes unitários e de integração;**
+.Unit and integration tests;
 
-**[ ] Paginação e filtros;**
+.Pagination and filters;
 
-**[ ] Validação de e-mail;**
+.Email validation;
 
-**[ ] Controle de duplicidade de usuários;**
+.User duplication control;
 
-**[ ] Autenticação e autorização;**
+.Authentication and authorization;
 
-**[ ] Configuração do MongoDB através de variáveis de ambiente.**
+.MongoDB configuration through environment variables.
 
-
-<h2 id="autor">👨‍💻 Autor</h2>
+<h2 id="autor">👨‍💻 Author</h2>
 <p align="center">
   <strong>Vitório Santos</strong>
 </p>
 <p align="center">
-  Projeto desenvolvido para prática e evolução em <strong>desenvolvimento backend com Java, Spring Boot e MongoDB</strong>.
+  Project developed for practice and growth in <strong>backend development with Java, Spring Boot, and MongoDB</strong>.
 </p>
 <p align="center">
-  <i>Continue construindo. Um projeto de cada vez. 🚀</i>
+  <i>Keep building. One project at a time. 🚀</i>
 </p>
