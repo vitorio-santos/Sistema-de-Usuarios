@@ -1,5 +1,5 @@
 <!-- Badges -->
-<h1 align="center">👤 API de Usuários</h1>
+<h1 align="center">👤 User API</h1>
 <p align="center">
   <b>REST API developed in Java with Spring Boot for user management using MongoDB.</b>
 </p>
