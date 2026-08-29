@@ -200,23 +200,23 @@ Example request body:
 ```text
 POST /usuarios
       ↓
-Criação do usuário
+User creation
 
 GET /usuarios
       ↓
-Consulta dos usuários
+User inquiry
 
 PUT /usuarios
       ↓
-Atualização do usuário
+User update
 
 DELETE /usuarios?id={id}
       ↓
-Exclusão do usuário
+User deletion
 ```
 ---
 
-<h2 id="estrutura-de-dados">📦 Data structure</h2>
+<h2 id="data-structure">📦 Data structure</h2>
 
 Each user stored by the API has the following conceptual structure:
 
